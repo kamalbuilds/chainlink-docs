@@ -1,0 +1,36 @@
+title: "Chainlink MCP Server"
+description: "Production-ready Model Context Protocol server for Chainlink services"
+baseurl: "/chainlink-tooling"
+
+# GitHub Pages settings
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+
+# Include files that GitHub Pages normally excludes
+include:
+  - "_*"
+
+# Exclude files from processing
+exclude:
+  - "*.md~"
+  - ".git/"
+  - ".gitignore"
+  - "node_modules/"
+  - "vendor/"
+  - "docs/"
+
+# Defaults for different file types
+defaults:
+  - scope:
+      path: "**/*.json"
+    values:
+      layout: null
+  - scope:
+      path: "tools"
+    values:
+      layout: null 

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chainlink MCP Tools Browser</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c5aa0;
+            margin-bottom: 10px;
+        }
+        
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        
+        .tool-card h3 {
+            color: #2c5aa0;
+            margin-top: 0;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .tool-link {
+            display: inline-block;
+            background: #2c5aa0;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
+        .tool-link:hover {
+            background: #1e3d72;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #2c5aa0;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <a href="../" class="back-link">← Back to MCP Server</a>
+    
+    <div class="header">
+        <h1>🔧 Chainlink MCP Tools</h1>
+        <p>Browse individual tool definition files for each Chainlink service</p>
+    </div>
+
+    <div class="tool-grid">
+        <div class="tool-card">
+            <h3>CCIP Tools</h3>
+            <p>Cross-chain interoperability protocol tools for sending messages and tokens across blockchain networks.</p>
+            <p><strong>10 tools available</strong></p>
+            <a href="./ccip.json" class="tool-link">View CCIP Tools →</a>
+        </div>
+
+        <div class="tool-card">
+            <h3>Data Streams Tools</h3>
+            <p>High-frequency market data tools with REST API, WebSocket subscriptions, and verification.</p>
+            <p><strong>10 tools available</strong></p>
+            <a href="./data-streams.json" class="tool-link">View Data Streams Tools →</a>
+        </div>
+
+        <div class="tool-card">
+            <h3>Functions Tools</h3>
+            <p>Serverless compute platform tools for executing custom JavaScript in decentralized environments.</p>
+            <p><strong>12 tools available</strong></p>
+            <a href="./functions.json" class="tool-link">View Functions Tools →</a>
+        </div>
+
+        <div class="tool-card">
+            <h3>VRF Tools</h3>
+            <p>Verifiable random function tools providing cryptographically secure randomness.</p>
+            <p><strong>12 tools available</strong></p>
+            <a href="./vrf.json" class="tool-link">View VRF Tools →</a>
+        </div>
+
+        <div class="tool-card">
+            <h3>Automation Tools</h3>
+            <p>Decentralized automation tools for triggering smart contract functions based on conditions.</p>
+            <p><strong>13 tools available</strong></p>
+            <a href="./automation.json" class="tool-link">View Automation Tools →</a>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,63 @@
+name: Deploy Chainlink MCP Server to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Validate JSON files
+        run: |
+          # Validate all JSON files
+          for file in mcp-server.json tools/*.json; do
+            if [ -f "$file" ]; then
+              echo "Validating $file..."
+              cat "$file" | python -m json.tool > /dev/null
+              echo "✓ $file is valid JSON"
+            fi
+          done
+          
+      - name: Test MCP server manifest
+        run: |
+          # Check that mcp-server.json contains required fields
+          python -c "
+          import json
+          with open('mcp-server.json') as f:
+              data = json.load(f)
+              assert 'name' in data
+              assert 'version' in data  
+              assert 'tools' in data
+              assert 'mcp' in data
+              print('✓ MCP server manifest is valid')
+          "
+          
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 

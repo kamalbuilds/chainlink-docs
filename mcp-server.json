@@ -1,0 +1,62 @@
+{
+  "name": "chainlink-mcp-server",
+  "version": "1.0.0",
+  "description": "Chainlink MCP Server providing comprehensive tools for CCIP, Data Streams, Functions, VRF, and Automation services",
+  "author": "Chainlink Multi-Agent System",
+  "license": "MIT",
+  "homepage": "https://docs.chain.link",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/chainlink-tooling"
+  },
+  "mcp": {
+    "version": "1.0.0",
+    "capabilities": {
+      "tools": {}
+    }
+  },
+  "tools": [
+    {
+      "source": "./tools/data-streams.json",
+      "namespace": "chainlink_data_streams"
+    },
+    {
+      "source": "./tools/ccip.json", 
+      "namespace": "chainlink_ccip"
+    },
+    {
+      "source": "./tools/functions.json",
+      "namespace": "chainlink_functions"
+    },
+    {
+      "source": "./tools/vrf.json",
+      "namespace": "chainlink_vrf"
+    },
+    {
+      "source": "./tools/automation.json",
+      "namespace": "chainlink_automation"
+    }
+  ],
+  "documentation": {
+    "overview": "This MCP server provides production-ready tools for interacting with all major Chainlink services including cross-chain interoperability (CCIP), high-frequency market data (Data Streams), serverless compute (Functions), verifiable randomness (VRF), and decentralized automation.",
+    "services": {
+      "ccip": "Cross-chain interoperability protocol for sending messages and tokens across blockchain networks",
+      "data_streams": "Pull-based oracle solution providing high-frequency, low-latency market data",
+      "functions": "Serverless platform for executing custom JavaScript code in a decentralized environment",
+      "vrf": "Verifiable random function providing cryptographically secure randomness",
+      "automation": "Decentralized automation network for triggering smart contract functions"
+    },
+    "usage": "Each tool follows production standards with real API integrations, comprehensive error handling, and multi-blockchain support.",
+    "networks": [
+      "ethereum",
+      "polygon", 
+      "arbitrum",
+      "avalanche",
+      "base",
+      "bsc",
+      "fantom",
+      "optimism",
+      "solana"
+    ]
+  }
+} 

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chainlink MCP Server</title>
+    <meta name="description" content="Model Context Protocol server for Chainlink services including CCIP, Data Streams, Functions, VRF, and Automation">
+    
+    <!-- MCP Server Discovery -->
+    <link rel="mcp-server" type="application/json" href="./mcp-server.json">
+    <meta name="mcp-server" content="./mcp-server.json">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 30px;
+        }
+        
+        h1 {
+            color: #2c5aa0;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        .mcp-endpoint {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+            word-break: break-all;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .service-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            border-left: 4px solid #2c5aa0;
+            transition: transform 0.2s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .service-card h3 {
+            color: #2c5aa0;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        
+        .tool-count {
+            background: #2c5aa0;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        .usage-section {
+            background: #e8f4f8;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .networks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .network-tag {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+        
+        .links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .link-button {
+            background: #2c5aa0;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+        
+        .link-button:hover {
+            background: #1e3d72;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔗 Chainlink MCP Server</h1>
+            <p class="subtitle">Production-ready Model Context Protocol server for Chainlink services</p>
+            
+            <div class="mcp-endpoint">
+                <strong>MCP Server Endpoint:</strong><br>
+                <span id="endpoint-url"></span>
+            </div>
+        </div>
+
+        <div class="usage-section">
+            <h2>🚀 Quick Start</h2>
+            <p>To use this MCP server in Cursor IDE or other MCP-compatible applications:</p>
+            <ol>
+                <li>Copy the MCP server endpoint URL above</li>
+                <li>Add it to your MCP client configuration</li>
+                <li>Access 57+ production-ready Chainlink tools across all major services</li>
+            </ol>
+        </div>
+
+        <h2>🛠️ Available Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>CCIP <span class="tool-count">10 tools</span></h3>
+                <p>Cross-chain interoperability protocol for sending messages and tokens across blockchain networks. Includes fee estimation, message tracking, and contract generation.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>Data Streams <span class="tool-count">10 tools</span></h3>
+                <p>Pull-based oracle solution providing high-frequency, low-latency market data with REST API, WebSocket subscriptions, and onchain verification.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>Functions <span class="tool-count">12 tools</span></h3>
+                <p>Serverless platform for executing custom JavaScript code in a decentralized environment with secret management and cost estimation.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>VRF <span class="tool-count">12 tools</span></h3>
+                <p>Verifiable random function providing cryptographically secure randomness with proof verification and batch requests.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>Automation <span class="tool-count">13 tools</span></h3>
+                <p>Decentralized automation network for triggering smart contract functions based on time, logs, or custom conditions.</p>
+            </div>
+        </div>
+
+        <h2>🌐 Supported Networks</h2>
+        <div class="networks">
+            <span class="network-tag">Ethereum</span>
+            <span class="network-tag">Polygon</span>
+            <span class="network-tag">Arbitrum</span>
+            <span class="network-tag">Avalanche</span>
+            <span class="network-tag">Base</span>
+            <span class="network-tag">BSC</span>
+            <span class="network-tag">Fantom</span>
+            <span class="network-tag">Optimism</span>
+            <span class="network-tag">Solana</span>
+        </div>
+
+        <h2>✨ Features</h2>
+        <ul>
+            <li><strong>Production-Ready:</strong> Real API integrations with comprehensive error handling</li>
+            <li><strong>Multi-Blockchain:</strong> Support for 9+ major blockchain networks</li>
+            <li><strong>Type-Safe:</strong> Strict input validation and detailed schemas</li>
+            <li><strong>Agent-Friendly:</strong> Designed for AI agents and automated systems</li>
+            <li><strong>Well-Documented:</strong> Comprehensive descriptions and usage examples</li>
+        </ul>
+
+        <div class="links">
+            <a href="./mcp-server.json" class="link-button">📄 Server Manifest</a>
+            <a href="./tools/" class="link-button">🔧 Browse Tools</a>
+            <a href="https://docs.chain.link" class="link-button">📚 Chainlink Docs</a>
+        </div>
+    </div>
+
+    <script>
+        // Set the current URL as the endpoint
+        document.getElementById('endpoint-url').textContent = window.location.origin + window.location.pathname + 'mcp-server.json';
+    </script>
+</body>
+</html> 
