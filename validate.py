@@ -90,7 +90,7 @@ def validate_tool_files():
         with open(tool_file, 'r') as f:
             data = json.load(f)
         
-        # Check if it's a tools array or single tool
+        # Check if it's a tools array or object with tools property
         if isinstance(data, list):
             tools = data
         elif isinstance(data, dict) and 'tools' in data:
@@ -108,11 +108,17 @@ def validate_tool_files():
                 print(f"❌ Tool {i} in {tool_file} is not an object")
                 return False
             
-            required_tool_fields = ['name', 'description', 'inputSchema']
+            # Check for required fields (handle both inputSchema and input_schema)
+            required_tool_fields = ['name', 'description']
             for field in required_tool_fields:
                 if field not in tool:
                     print(f"❌ Tool {i} in {tool_file} missing required field: {field}")
                     return False
+            
+            # Check for schema field (either inputSchema or input_schema)
+            if 'inputSchema' not in tool and 'input_schema' not in tool:
+                print(f"❌ Tool {i} in {tool_file} missing input schema field (inputSchema or input_schema)")
+                return False
         
         print(f"  ✅ {tool_file} contains {file_tool_count} valid tools")
     
